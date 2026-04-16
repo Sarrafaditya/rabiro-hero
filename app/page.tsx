@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FinalCTA from "@/components/FinalCTA";
 import ContactSection from "@/components/ContactSection";
+import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import ClientProviders from "@/components/ClientProviders";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <TestimonialsSection />
         <FinalCTA />
         <ContactSection />
+        <MapSection />
       </main>
       <Footer />
     </>
