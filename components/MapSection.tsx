@@ -223,16 +223,16 @@ export default function MapSection() {
               Rabiro HQ
             </h3>
             <p className="text-[#8ba3c7] text-xs mb-0.5">
-              1234 Broadway, Suite 800
+              1 Times Square, 7th Floor
             </p>
-            <p className="text-[#8ba3c7] text-xs mb-4">New York, NY 10001</p>
+            <p className="text-[#8ba3c7] text-xs mb-4">New York, NY 10036</p>
             <Button
               size="sm"
               className="gap-2 w-full"
               style={{ cursor: "none" }}
               onClick={() =>
                 window.open(
-                  "https://maps.google.com/?q=Times+Square,New+York,NY",
+                  "https://maps.google.com/?q=1+Times+Square,New+York,NY+10036",
                   "_blank"
                 )
               }
