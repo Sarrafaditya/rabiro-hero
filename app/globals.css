@@ -18,6 +18,16 @@
   --electric-blue-dark: #0066cc;
   --electric-blue-glow: rgba(26, 144, 255, 0.3);
 
+  /* Purple Accent */
+  --purple: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-glow: rgba(124, 58, 237, 0.3);
+
+  /* Orange Accent */
+  --orange: #f97316;
+  --orange-light: #fb923c;
+  --orange-glow: rgba(249, 115, 22, 0.3);
+
   /* Dark Palette */
   --dark-bg: #080c14;
   --dark-surface: #0d1320;
