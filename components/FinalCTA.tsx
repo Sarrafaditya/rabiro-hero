@@ -87,7 +87,6 @@ export default function FinalCTA() {
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white transition-all duration-300 hover:scale-105"
             style={{
               background: "linear-gradient(135deg, #1a90ff, #7c3aed)",
-              cursor: "none",
             }}
           >
             Contact Us

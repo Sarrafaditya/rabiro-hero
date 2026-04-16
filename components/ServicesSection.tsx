@@ -137,7 +137,7 @@ export default function ServicesSection() {
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 group-hover:gap-2.5"
-                  style={{ color: service.color, cursor: "none" }}
+                  style={{ color: service.color }}
                 >
                   Read More
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />

@@ -123,10 +123,7 @@ export default function WhyChooseUs() {
                 >
                   <Icon size={22} style={{ color: feature.color }} />
                 </div>
-                <h3
-                  className="text-base font-bold text-white mb-3 group-hover:transition-colors duration-300"
-                  style={{ color: undefined }}
-                >
+                <h3 className="text-base font-bold text-white mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-[#8ba3c7] text-sm leading-relaxed">
