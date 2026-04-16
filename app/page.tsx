@@ -1,9 +1,13 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import StatsStrip from "@/components/StatsStrip";
+import AboutSection from "@/components/AboutSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ProcessSection from "@/components/ProcessSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FinalCTA from "@/components/FinalCTA";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ClientProviders from "@/components/ClientProviders";
@@ -15,10 +19,14 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
+        <StatsStrip />
+        <AboutSection />
+        <WhyChooseUs />
+        <ProcessSection />
         <ProjectsSection />
         <TestimonialsSection />
+        <FinalCTA />
         <ContactSection />
       </main>
       <Footer />

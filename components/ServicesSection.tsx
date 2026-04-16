@@ -4,59 +4,34 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
-import {
-  TrendingUp,
-  Globe,
-  Search,
-  Palette,
-  Code2,
-  BarChart3,
-} from "lucide-react";
+import { Code2, Video, Palette, ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    icon: TrendingUp,
-    title: "Performance Marketing",
+    icon: Code2,
+    title: "Web Development & Landing Pages",
     description:
-      "ROI-focused paid advertising across Google, Meta, and programmatic channels. Every rupee tracked.",
+      "Craft a website or landing page that converts visitors into customers with our professional web services.",
     color: "#1a90ff",
+    gradient: "from-[#1a90ff]/20 to-[#0066cc]/10",
   },
   {
-    icon: Search,
-    title: "SEO & Content Strategy",
+    icon: Video,
+    title: "Video Editing",
     description:
-      "Dominate search rankings with technical SEO, authority-building content, and keyword dominance.",
-    color: "#4da6ff",
-  },
-  {
-    icon: Globe,
-    title: "Social Media Marketing",
-    description:
-      "Build engaged communities and convert followers into loyal customers with viral campaigns.",
-    color: "#00c8ff",
+      "Improve your social media presence and engage with your target audience through creative content on Facebook, Instagram, Twitter, etc.",
+    color: "#7c3aed",
+    gradient: "from-[#7c3aed]/20 to-[#a78bfa]/10",
   },
   {
     icon: Palette,
-    title: "Brand Identity & Design",
+    title: "Graphic Design",
     description:
-      "Craft a magnetic brand identity that communicates your values and captivates your audience.",
-    color: "#0066cc",
-  },
-  {
-    icon: Code2,
-    title: "Web Development",
-    description:
-      "High-performance websites and web apps that convert visitors into customers, powered by modern tech.",
-    color: "#1a90ff",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Insights",
-    description:
-      "Turn raw data into actionable insights. Our dashboards give you 360° visibility into your growth.",
-    color: "#4da6ff",
+      "Enhance your brand's visual identity with professional design services that include logos, banners, infographics, and other marketing materials.",
+    color: "#f97316",
+    gradient: "from-[#f97316]/20 to-[#fb923c]/10",
   },
 ];
 
@@ -67,7 +42,7 @@ export default function ServicesSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Heading slide up
+      // Heading fade in
       gsap.from(headingRef.current, {
         opacity: 0,
         y: 40,
@@ -88,7 +63,7 @@ export default function ServicesSection() {
           scale: 0.95,
           duration: 0.7,
           ease: "power3.out",
-          stagger: 0.1,
+          stagger: 0.15,
           scrollTrigger: {
             trigger: cardsRef.current,
             start: "top 80%",
@@ -113,43 +88,60 @@ export default function ServicesSection() {
         <div ref={headingRef} className="text-center mb-16">
           <Badge className="mb-4">Our Services</Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4">
-            Everything You Need to{" "}
-            <span className="text-[var(--electric-blue)]">Scale</span>
+            Rabiro&apos;s{" "}
+            <span className="text-[var(--electric-blue)]">
+              Comprehensive Digital Services
+            </span>
           </h2>
           <p className="text-[#8ba3c7] text-base md:text-lg max-w-2xl mx-auto">
-            From strategy to execution, we cover every dimension of your digital
-            growth. One partner, infinite possibilities.
+            We offer tailored digital marketing solutions to drive growth and
+            enhance your online presence. Discover our comprehensive services and
+            take your business to the next level with Rabiro.
           </p>
         </div>
 
         {/* Cards */}
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="group glass-card rounded-2xl p-7 hover:border-[var(--electric-blue)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(26,144,255,0.1)] cursor-default"
+                className="group glass-card rounded-2xl p-8 hover:border-[var(--electric-blue)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(26,144,255,0.1)] hover:scale-[1.02] cursor-default flex flex-col"
               >
+                {/* Icon */}
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: `${service.color}22` }}
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${service.gradient} transition-all duration-300 group-hover:-translate-y-1`}
+                  style={{ boxShadow: `0 0 20px ${service.color}33` }}
                 >
-                  <Icon size={22} color={service.color} />
+                  <Icon size={26} color={service.color} />
                 </div>
+
                 <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[var(--electric-blue)] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-[#8ba3c7] text-sm leading-relaxed">
+                <p className="text-[#8ba3c7] text-sm leading-relaxed mb-6 flex-grow">
                   {service.description}
                 </p>
-                <div
-                  className="mt-5 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-full"
-                  style={{ background: `linear-gradient(90deg, ${service.color}, transparent)` }}
-                />
+
+                {/* Read More */}
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .querySelector("#contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 group-hover:gap-2.5"
+                  style={{ color: service.color, cursor: "none" }}
+                >
+                  Read More
+                  <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
               </div>
             );
           })}
