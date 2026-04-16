@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--dark-bg);
+  --color-foreground: #f0f4ff;
+  --color-primary: var(--electric-blue);
+  --color-primary-foreground: var(--dark-bg);
+  --color-muted: #1e2d45;
+  --color-muted-foreground: #8ba3c7;
+  --color-border: #1e2d45;
+  --color-card: var(--dark-card);
+  --color-card-foreground: #f0f4ff;
+  --color-accent: var(--electric-blue);
+
+  /* Electric Blue Palette */
+  --electric-blue: #1a90ff;
+  --electric-blue-light: #4da6ff;
+  --electric-blue-dark: #0066cc;
+  --electric-blue-glow: rgba(26, 144, 255, 0.3);
+
+  /* Dark Palette */
+  --dark-bg: #080c14;
+  --dark-surface: #0d1320;
+  --dark-card: #111827;
+  --dark-border: #1e2d45;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--dark-bg);
+    color: #f0f4ff;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Hide default cursor on desktop */
+  @media (min-width: 768px) {
+    body {
+      cursor: none;
+    }
+  }
+
+  * {
+    border-color: var(--dark-border);
+    box-sizing: border-box;
+  }
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--electric-blue);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--electric-blue);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+  box-shadow: 0 0 12px var(--electric-blue-glow), inset 0 0 12px rgba(26, 144, 255, 0.1);
+}
+
+.cursor-ring.hovering {
+  width: 52px;
+  height: 52px;
+  border-color: var(--electric-blue-light);
+  background: rgba(26, 144, 255, 0.05);
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px var(--electric-blue-glow), 0 0 40px rgba(26, 144, 255, 0.15);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px var(--electric-blue-glow);
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(13, 19, 32, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--dark-border);
+}
+
+/* Section fade default */
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--electric-blue-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--electric-blue);
+}
+
+/* Selection */
+::selection {
+  background: rgba(26, 144, 255, 0.3);
+  color: #fff;
+}
