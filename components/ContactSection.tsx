@@ -34,9 +34,9 @@ const services = [
 ];
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@rabiro.com" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-  { icon: MapPin, label: "Location", value: "New York, NY" },
+  { icon: Mail, label: "Email", value: "connect@rabiro.com" },
+  { icon: Phone, label: "Phone", value: "+91 9934438066" },
+  { icon: MapPin, label: "Location", value: "Sector 115, Landran Road, Kharar, Punjab, India" },
 ];
 
 export default function ContactSection() {
