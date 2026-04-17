@@ -127,7 +127,7 @@ export default function ProcessSection() {
 
         {/* Steps */}
         <div ref={stepsRef} className="relative">
-          {/* Connector line (desktop only) — sits below icons */}
+          {/* Connector line (desktop only) — sits behind icons via z-0 */}
           <div className="hidden lg:block absolute top-8 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px z-0">
             <div
               ref={lineRef}
@@ -149,9 +149,9 @@ export default function ProcessSection() {
                     <div
                       className="step-icon w-16 h-16 rounded-2xl flex items-center justify-center relative z-20"
                       style={{
-                        background: `${step.color}18`,
-                        border: `2px solid ${step.color}50`,
-                        boxShadow: `0 0 24px ${step.color}40`,
+                        background: "#0d1320",
+                        border: `2px solid ${step.color}60`,
+                        boxShadow: `0 0 24px ${step.color}50`,
                       }}
                     >
                       <Icon size={28} style={{ color: step.color }} />

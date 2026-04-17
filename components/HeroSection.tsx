@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Users, Award, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, DollarSign, Zap } from "lucide-react";
 
 const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
   ssr: false,
@@ -13,7 +13,7 @@ const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
 const stats = [
   { icon: TrendingUp, value: "500%", label: "Avg. ROI", color: "#1a90ff" },
   { icon: Users, value: "200+", label: "Clients", color: "#4da6ff" },
-  { icon: Award, value: "50+", label: "Awards", color: "#00c8ff" },
+  { icon: DollarSign, value: "$75K+", label: "Ads Spent", color: "#00c8ff" },
   { icon: Zap, value: "10x", label: "Growth", color: "#0066cc" },
 ];
 
@@ -150,7 +150,7 @@ export default function HeroSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--electric-blue)] bg-[rgba(26,144,255,0.08)] px-4 py-1.5 text-xs text-[var(--electric-blue)] font-semibold mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--electric-blue)] animate-pulse" />
-              Digital Marketing Agency
+              WELCOME TO RABIRO
             </div>
 
             {/* Heading */}
@@ -198,6 +198,15 @@ export default function HeroSection() {
                 style={{ cursor: "none" }}
               >
                 View Our Work
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="gap-2 border-[var(--electric-blue)] text-[var(--electric-blue)] hover:bg-[rgba(26,144,255,0.1)]"
+                onClick={() => { window.location.href = "tel:+919934438066"; }}
+                style={{ cursor: "none" }}
+              >
+                Book Your Consultation
               </Button>
             </div>
           </div>

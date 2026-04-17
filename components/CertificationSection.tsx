@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
@@ -10,31 +11,31 @@ gsap.registerPlugin(ScrollTrigger);
 const certifications = [
   {
     name: "Meta Business Partner",
-    shortName: "Meta",
+    logo: "/logos/meta.svg",
     color: "#1877F2",
     bg: "#1877F215",
   },
   {
     name: "Shopify Partner",
-    shortName: "Shopify",
+    logo: "/logos/shopify.svg",
     color: "#96bf48",
     bg: "#96bf4815",
   },
   {
     name: "AiSensy",
-    shortName: "AiSensy",
+    logo: "/logos/aisensy.svg",
     color: "#7c3aed",
     bg: "#7c3aed15",
   },
   {
     name: "Razorpay Partner",
-    shortName: "Razorpay",
+    logo: "/logos/razorpay.svg",
     color: "#3395FF",
     bg: "#3395FF15",
   },
   {
     name: "Cashfree Payments",
-    shortName: "Cashfree",
+    logo: "/logos/cashfree.svg",
     color: "#00b674",
     bg: "#00b67415",
   },
@@ -139,23 +140,14 @@ export default function CertificationSection() {
                 (e.currentTarget as HTMLDivElement).style.borderColor = `${cert.color}30`;
               }}
             >
-              {/* Placeholder circle for logo (replace with <Image> when PNGs are ready) */}
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center mb-3 text-xs font-extrabold"
-                style={{
-                  background: `${cert.color}20`,
-                  border: `2px solid ${cert.color}50`,
-                  color: cert.color,
-                }}
-              >
-                {cert.shortName.charAt(0)}
-              </div>
-              <span
-                className="text-xs font-bold tracking-wide text-center"
-                style={{ color: cert.color }}
-              >
-                {cert.name}
-              </span>
+              <Image
+                src={cert.logo}
+                alt={cert.name}
+                width={120}
+                height={45}
+                unoptimized
+                className="object-contain"
+              />
             </div>
           ))}
         </div>

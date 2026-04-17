@@ -10,37 +10,37 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BarChart3, Users, Sliders, HeadphonesIcon } from "lucide-react";
+import { Clock, DollarSign, Target, Star } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    icon: BarChart3,
-    title: "Data-Driven Approach",
+    icon: Clock,
+    title: "Save Your Time",
     description:
-      "Every decision we make is backed by real data and analytics, ensuring maximum impact for your investment.",
+      "We optimize your time and resources with efficient marketing solutions.",
     color: "#1a90ff",
   },
   {
-    icon: Users,
-    title: "Skilled Team",
+    icon: DollarSign,
+    title: "Affordable Price For You",
     description:
-      "Our team of seasoned specialists brings years of cross-industry experience to every campaign we run.",
+      "We provide cost-effective digital marketing solutions to fit your budget.",
     color: "#7c3aed",
   },
   {
-    icon: Sliders,
-    title: "Tailored Solutions",
+    icon: Target,
+    title: "Best Strategy",
     description:
-      "No cookie-cutter strategies. We craft bespoke plans designed specifically around your business goals.",
+      "We deliver the industry's best strategies for maximum ROI and business growth.",
     color: "#f97316",
   },
   {
-    icon: HeadphonesIcon,
-    title: "Exceptional Support",
+    icon: Star,
+    title: "Why Choose Us",
     description:
-      "We're with you every step of the way — proactive communication and rapid response guaranteed.",
+      "Partner with Rabiro for expertly crafted digital strategies that yield tangible results.",
     color: "#00c8ff",
   },
 ];
@@ -65,7 +65,6 @@ export default function WhyChooseUs() {
       });
 
       if (cardsRef.current) {
-        // Cards appear one by one with stagger
         gsap.from(cardsRef.current.children, {
           opacity: 0,
           y: 50,
@@ -80,6 +79,7 @@ export default function WhyChooseUs() {
           },
         });
       }
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
@@ -116,7 +116,7 @@ export default function WhyChooseUs() {
             return (
               <Card
                 key={feature.title}
-                className="group rounded-xl border transition-all duration-300 hover:-translate-y-2 cursor-default"
+                className="group rounded-xl border transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] cursor-default"
                 style={{
                   background: "rgba(13, 19, 32, 0.7)",
                   backdropFilter: "blur(16px)",
@@ -125,7 +125,7 @@ export default function WhyChooseUs() {
                   boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 12px 40px ${feature.color}28, 0 0 0 1px ${feature.color}55`;
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 16px 48px ${feature.color}35, 0 0 0 1px ${feature.color}55`;
                   (e.currentTarget as HTMLDivElement).style.borderColor = `${feature.color}70`;
                 }}
                 onMouseLeave={(e) => {
