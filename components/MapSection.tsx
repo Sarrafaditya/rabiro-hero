@@ -153,7 +153,7 @@ export default function MapSection() {
             <span className="text-[var(--electric-blue)]">Office</span>
           </h2>
           <p className="text-[#8ba3c7] text-base md:text-lg max-w-2xl mx-auto">
-            We&apos;re located in the heart of New York City. Come meet our
+            We&apos;re located in Kharar, Punjab, India. Come meet our
             team or schedule a virtual call.
           </p>
         </div>
@@ -170,7 +170,7 @@ export default function MapSection() {
             className="absolute inset-0 will-change-transform"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2153986736006!2d-73.98784268459392!3d40.75789797932691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps?q=Sector+115+Landran+Road+Kharar+Punjab+India&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
@@ -223,16 +223,16 @@ export default function MapSection() {
               Rabiro HQ
             </h3>
             <p className="text-[#8ba3c7] text-xs mb-0.5">
-              1 Times Square, 7th Floor
+              Sector 115, Landran Road
             </p>
-            <p className="text-[#8ba3c7] text-xs mb-4">New York, NY 10036</p>
+            <p className="text-[#8ba3c7] text-xs mb-4">Kharar, Punjab, India</p>
             <Button
               size="sm"
               className="gap-2 w-full"
               style={{ cursor: "none" }}
               onClick={() =>
                 window.open(
-                  "https://maps.google.com/?q=1+Times+Square,New+York,NY+10036",
+                  "https://maps.google.com/?q=Sector+115+Landran+Road+Kharar+Punjab+India",
                   "_blank"
                 )
               }
