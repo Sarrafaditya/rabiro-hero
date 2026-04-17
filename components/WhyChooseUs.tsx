@@ -4,6 +4,12 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { BarChart3, Users, Sliders, HeadphonesIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -58,8 +64,8 @@ export default function WhyChooseUs() {
         },
       });
 
-      // Cards appear one by one
       if (cardsRef.current) {
+        // Cards appear one by one with stagger
         gsap.from(cardsRef.current.children, {
           opacity: 0,
           y: 50,
@@ -74,7 +80,6 @@ export default function WhyChooseUs() {
           },
         });
       }
-    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
@@ -109,27 +114,46 @@ export default function WhyChooseUs() {
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <div
+              <Card
                 key={feature.title}
-                className="group glass-card rounded-2xl p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(26,144,255,0.15)] cursor-default"
-                style={{ borderColor: `${feature.color}25` }}
+                className="group rounded-xl border transition-all duration-300 hover:-translate-y-2 cursor-default"
+                style={{
+                  background: "rgba(13, 19, 32, 0.7)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  borderColor: `${feature.color}25`,
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 12px 40px ${feature.color}28, 0 0 0 1px ${feature.color}55`;
+                  (e.currentTarget as HTMLDivElement).style.borderColor = `${feature.color}70`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.boxShadow =
+                    "0 4px 24px rgba(0,0,0,0.3)";
+                  (e.currentTarget as HTMLDivElement).style.borderColor = `${feature.color}25`;
+                }}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{
-                    background: `${feature.color}18`,
-                    boxShadow: `0 0 16px ${feature.color}33`,
-                  }}
-                >
-                  <Icon size={22} style={{ color: feature.color }} />
-                </div>
-                <h3 className="text-base font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-[#8ba3c7] text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+                <CardHeader className="pb-3">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-2"
+                    style={{
+                      background: `${feature.color}18`,
+                      boxShadow: `0 0 16px ${feature.color}33`,
+                    }}
+                  >
+                    <Icon size={22} style={{ color: feature.color }} />
+                  </div>
+                  <CardTitle className="text-white text-base">
+                    {feature.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-[#8ba3c7] text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
@@ -137,3 +161,4 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+

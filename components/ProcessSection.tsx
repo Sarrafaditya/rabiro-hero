@@ -127,8 +127,8 @@ export default function ProcessSection() {
 
         {/* Steps */}
         <div ref={stepsRef} className="relative">
-          {/* Connector line (desktop only) */}
-          <div className="hidden lg:block absolute top-14 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px">
+          {/* Connector line (desktop only) — sits below icons */}
+          <div className="hidden lg:block absolute top-8 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px z-0">
             <div
               ref={lineRef}
               className="h-full"
@@ -145,9 +145,9 @@ export default function ProcessSection() {
               return (
                 <div key={step.title} className="process-step flex flex-col items-center text-center">
                   {/* Number + Icon */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-6 z-20">
                     <div
-                      className="step-icon w-16 h-16 rounded-2xl flex items-center justify-center"
+                      className="step-icon w-16 h-16 rounded-2xl flex items-center justify-center relative z-20"
                       style={{
                         background: `${step.color}18`,
                         border: `2px solid ${step.color}50`,
@@ -157,7 +157,7 @@ export default function ProcessSection() {
                       <Icon size={28} style={{ color: step.color }} />
                     </div>
                     <span
-                      className="absolute -top-3 -right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold"
+                      className="absolute -top-3 -right-3 w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold z-30"
                       style={{
                         background: step.color,
                         color: "#080c14",
