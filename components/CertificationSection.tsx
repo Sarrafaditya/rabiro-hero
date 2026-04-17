@@ -123,7 +123,7 @@ export default function CertificationSection() {
             <div
               key={cert.name}
               title={cert.name}
-              className="group flex flex-col items-center justify-center rounded-2xl px-8 py-5 transition-all duration-300 hover:scale-110 grayscale hover:grayscale-0 cursor-default"
+              className="group flex flex-col items-center justify-center rounded-2xl px-8 py-5 transition-all duration-300 hover:scale-110 cursor-default"
               style={{
                 background: cert.bg,
                 border: `1px solid ${cert.color}30`,

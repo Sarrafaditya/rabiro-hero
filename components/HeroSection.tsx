@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Users, DollarSign, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, DollarSign, Zap, Phone } from "lucide-react";
 
 const ThreeBackground = dynamic(() => import("@/components/ThreeBackground"), {
   ssr: false,
@@ -201,11 +201,11 @@ export default function HeroSection() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="gap-2 border-[var(--electric-blue)] text-[var(--electric-blue)] hover:bg-[rgba(26,144,255,0.1)]"
+                className="relative z-10 gap-2 rounded-full bg-[var(--electric-blue)] text-white hover:scale-105 hover:shadow-[0_0_24px_var(--electric-blue-glow)] active:scale-95 transition-all duration-300"
                 onClick={() => { window.location.href = "tel:+919934438066"; }}
                 style={{ cursor: "none" }}
               >
+                <Phone size={18} />
                 Book Your Consultation
               </Button>
             </div>
