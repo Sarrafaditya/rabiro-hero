@@ -60,6 +60,7 @@ export default function ProjectsSection() {
       });
 
       if (gridRef.current) {
+        // Grid reveal — stagger cards
         gsap.from(gridRef.current.querySelectorAll(".project-card"), {
           opacity: 0,
           y: 60,

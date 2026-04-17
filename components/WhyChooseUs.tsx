@@ -65,6 +65,7 @@ export default function WhyChooseUs() {
       });
 
       if (cardsRef.current) {
+        // Cards appear one by one with stagger
         gsap.from(cardsRef.current.children, {
           opacity: 0,
           y: 50,
@@ -79,7 +80,6 @@ export default function WhyChooseUs() {
           },
         });
       }
-    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
