@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -82,8 +83,7 @@ export default function Navbar() {
           className="text-2xl font-bold tracking-tight"
           style={{ cursor: "none" }}
         >
-          <span className="text-[var(--electric-blue)]">Rabi</span>
-          <span className="text-white">ro</span>
+          <Image src="/rabiro-logo.svg" alt="Rabiro" width={100} height={30} priority />
         </a>
 
         {/* Desktop Links */}
