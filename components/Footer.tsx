@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const WhatsAppIcon = ({ size = 15 }: { size?: number }) => (
@@ -43,8 +44,7 @@ export default function Footer() {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-2xl font-bold tracking-tight inline-block mb-4"
             >
-              <span className="text-[var(--electric-blue)]">Rabi</span>
-              <span className="text-white">ro</span>
+              <Image src="/rabiro-logo.svg" alt="Rabiro" width={100} height={30} />
             </a>
             <p className="text-[#8ba3c7] text-sm leading-relaxed mb-6 max-w-xs">
               Rabiro is a performance-driven digital marketing agency that
