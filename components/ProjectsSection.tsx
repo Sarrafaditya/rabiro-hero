@@ -4,46 +4,39 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "NovaTech Rebrand",
-    category: "Brand Identity",
+    title: "Google & YouTube Ads",
+    category: "Video Advertising",
     description:
-      "Complete rebrand for a $50M B2B tech company — new identity, messaging, and digital presence.",
-    stat: "+340% Brand Recall",
-    color: "#1a90ff",
-    size: "large",
+      "We created engaging video ads for a food delivery service that were viewed over 1 million times, resulting in a 30% increase in orders.",
+    stat: "+30% Orders",
+    gradient: "linear-gradient(135deg, #1a90ff 0%, #0d1320 60%)",
+    accent: "#1a90ff",
+    icon: "▶",
   },
   {
-    title: "GreenWave E-commerce",
-    category: "Performance Marketing",
+    title: "Facebook & Instagram Ads",
+    category: "Social Media Ads",
     description:
-      "Scaled D2C brand from $200K to $2M ARR in 8 months through paid social and SEO.",
-    stat: "+900% Revenue",
-    color: "#4da6ff",
-    size: "small",
+      "We ran a targeted ad campaign for a fitness startup that generated over 1,000 leads in just one month, resulting in a 25% increase in membership sign-ups.",
+    stat: "1,000+ Leads",
+    gradient: "linear-gradient(135deg, #7c3aed 0%, #0d1320 60%)",
+    accent: "#7c3aed",
+    icon: "f",
   },
   {
-    title: "PulseHealth App",
-    category: "Web Development",
+    title: "Web Development",
+    category: "Development",
     description:
-      "Built a blazing-fast Next.js web app for a healthtech startup with 50K+ monthly users.",
-    stat: "99 Lighthouse Score",
-    color: "#00c8ff",
-    size: "small",
-  },
-  {
-    title: "Luminary Fashion",
-    category: "Social Media Marketing",
-    description:
-      "Turned a boutique fashion brand into a social media phenomenon with 1M+ followers.",
-    stat: "1M+ Followers",
-    color: "#0066cc",
-    size: "large",
+      "We designed and developed a new website for a technology company that improved user experience and resulted in a 50% increase in website traffic.",
+    stat: "+50% Traffic",
+    gradient: "linear-gradient(135deg, #f97316 0%, #0d1320 60%)",
+    accent: "#f97316",
+    icon: "</>",
   },
 ];
 
@@ -66,7 +59,6 @@ export default function ProjectsSection() {
         },
       });
 
-      // Grid reveal — stagger cards
       if (gridRef.current) {
         gsap.from(gridRef.current.querySelectorAll(".project-card"), {
           opacity: 0,
@@ -108,60 +100,78 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid — 3 hover cards */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {projects.map((project) => (
             <div
               key={project.title}
-              className={`project-card group glass-card rounded-2xl overflow-hidden hover:border-[var(--electric-blue)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(26,144,255,0.1)] ${
-                project.size === "large" ? "md:col-span-1" : ""
-              }`}
+              className="project-card group relative rounded-2xl overflow-hidden cursor-default"
+              style={{
+                border: `1px solid ${project.accent}25`,
+                height: "340px",
+              }}
             >
-              {/* Preview area */}
+              {/* Background image layer */}
               <div
-                className="h-48 relative overflow-hidden flex items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${project.color}22 0%, ${project.color}08 100%)`,
-                  borderBottom: `1px solid var(--dark-border)`,
-                }}
+                className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-110"
+                style={{ background: project.gradient }}
+              />
+
+              {/* Static icon (visible by default, fades out on hover) */}
+              <div
+                className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0"
               >
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-extrabold transition-transform duration-300 group-hover:scale-110"
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center text-2xl font-extrabold"
                   style={{
-                    background: `${project.color}22`,
-                    color: project.color,
+                    background: `${project.accent}22`,
+                    border: `2px solid ${project.accent}50`,
+                    color: project.accent,
+                    boxShadow: `0 0 32px ${project.accent}40`,
                   }}
                 >
-                  {project.title.charAt(0)}
-                </div>
-                <div
-                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ background: `${project.color}33` }}
-                >
-                  <ExternalLink size={14} color={project.color} />
+                  {project.icon}
                 </div>
               </div>
 
-              {/* Info */}
-              <div className="p-7">
-                <Badge variant="secondary" className="mb-3 text-xs">
+              {/* Overlay — slides in on hover */}
+              <div
+                className="absolute inset-0 flex flex-col justify-end p-7 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(8,12,20,0.97) 0%, rgba(8,12,20,0.75) 60%, rgba(8,12,20,0.1) 100%)",
+                }}
+              >
+                <Badge
+                  variant="secondary"
+                  className="self-start mb-3 text-xs"
+                  style={{
+                    background: `${project.accent}20`,
+                    color: project.accent,
+                    border: `1px solid ${project.accent}40`,
+                  }}
+                >
                   {project.category}
                 </Badge>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[var(--electric-blue)] transition-colors duration-300">
+                <h3
+                  className="text-xl font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-400"
+                >
                   {project.title}
                 </h3>
-                <p className="text-[#8ba3c7] text-sm leading-relaxed mb-4">
+                <p
+                  className="text-[#c5d3e8] text-sm leading-relaxed mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+                >
                   {project.description}
                 </p>
                 <div
-                  className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold"
+                  className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold self-start translate-y-4 group-hover:translate-y-0 transition-transform duration-600"
                   style={{
-                    background: `${project.color}15`,
-                    color: project.color,
-                    border: `1px solid ${project.color}40`,
+                    background: `${project.accent}18`,
+                    color: project.accent,
+                    border: `1px solid ${project.accent}45`,
                   }}
                 >
                   {project.stat}
@@ -174,3 +184,4 @@ export default function ProjectsSection() {
     </section>
   );
 }
+
